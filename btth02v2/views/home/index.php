@@ -14,7 +14,7 @@
     <h1>Tôi là TRANG CHỦ</h1>
     <?php
         foreach($articles as $article){
-            echo "<p>{$article->getTitle()}</p>";
+            echo "<p>{$article->gettieude()}</p>";
         }
     ?>
 </body>
