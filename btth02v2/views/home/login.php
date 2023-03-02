@@ -7,7 +7,7 @@
     <title>Music for Life</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style_login.css">
+    <link rel="stylesheet" href="assets/css/style_login.css">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div style="max-width:15%" class="my-logo">
                     <a class="navbar-brand" href="#">
-                        <img src="/images/logo2.png" alt="" class="img-fluid">
+                        <img src="assets/images/logo2.png" alt="" class="img-fluid">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a style="text-transform: uppercase;" class="nav-link" aria-current="page" href="../home/index.php">Trang chủ</a>
+                    <a style="text-transform: uppercase;" class="nav-link" aria-current="page" href="index.php?controller=home&action=trangchu">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                    <a style="text-transform: uppercase;" class="nav-link active" href="../login/login.php">Đăng nhập</a>
+                    <a style="text-transform: uppercase;" class="nav-link active" href="index.php?controller=home&action=login">Đăng nhập</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
