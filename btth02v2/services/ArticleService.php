@@ -24,3 +24,4 @@ class ArticleService{
         return $articles;
     }
 }
+?>
