@@ -25,3 +25,4 @@ class Author{
         $this->tentgia = $tentgia;
     }
 }
+?>
