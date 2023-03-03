@@ -21,4 +21,10 @@ class ArticleController{
         // Nhiệm vụ 2: Tương tác với View
         include("views/article/list_article.php");
     }
+
+    public function update(){
+        $mabviet = get['id'];
+        $data = [];
+        include("views/article/update_article.php");
+    }
 }
