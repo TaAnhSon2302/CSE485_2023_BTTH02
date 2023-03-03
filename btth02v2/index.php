@@ -12,20 +12,20 @@
 <!-- Action là tên cả HÀM trong FILE controller mà chúng ta gọi -->
 
 <?php
-// B1: Bắt giá trị controller và action
-$controller = isset($_GET['controller'])?   $_GET['controller']:'home';
-$action     = isset($_GET['action'])?       $_GET['action']:'index';
+include "models/Member.php";
+$db = new Database;
+$db-> connect();
 
-// B2: Chuẩn hóa tên trước khi gọi
-$controller = ucfirst($controller);
-$controller .= 'Controller';
-$controllerPath = 'controllers/'.$controller.'.php';
-
-// B3. Để gọi nó Controller
-if(!file_exists($controllerPath)){
-    die('Lỗi! Controller này không tồn tại');
+if(isset($_GET['controller'])){
+    $controller = $_GET['controller'];
 }
-require_once($controllerPath);
-// B4. Tạo đối tượng và gọi hàm của Controller
-$myObj = new $controller();  //controller=home > new HomeController()
-$myObj->$action(); //action=index > index()
+else{
+    $controller = '';
+}
+switch($controller){
+    case 'home':{
+        require_once('controllers/HomeController.php');
+    }
+}
+
+?>
