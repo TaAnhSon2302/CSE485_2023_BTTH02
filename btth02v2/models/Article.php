@@ -2,13 +2,14 @@
 class Article{
     // Thuộc tính
 
-    private $tieude;
+    private $mabviet,$tieude;
     private $tomtat;
     private $tenbhat;
     private $matloai,$noidung,$matgia,$ngayviet,$hinhanh;
 
 
-    public function __construct($tieude,$tenbhat,$matloai ,$tomtat,$noidung,$matgia,$ngayviet,$hinhanh){
+    public function __construct($mabviet,$tieude,$tenbhat,$matloai ,$tomtat,$noidung,$matgia,$ngayviet,$hinhanh){
+        $this->mabviet = $mabviet;
         $this->tieude = $tieude;
         $this->tenbhat = $tenbhat;
 
@@ -21,8 +22,15 @@ class Article{
     }
 
     // Setter và Getter
+    public function gettmabviet(){
+        return $this->mabviet;
+    }
+    public function setmabviet($mabviet){
+        $this->mabviet = $mabviet;
+    }
+
     public function gettieude(){
-        return $this->title;
+        return $this->tieude;
     }
     public function settieude($tieude){
         $this->tieude = $tieude;
