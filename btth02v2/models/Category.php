@@ -9,15 +9,15 @@ class Category {
 }
   //Setter và Getter
   public function getMaTloai(){
-    return $this->mat_loai;
+    return $this->ma_tloai;
   }
-  public function setMaRloai($mat_loai) {
-    $this->mat_loai = $mat_loai;
+  public function setMaTloai($ma_tloai) {
+    $this->ma_tloai = $ma_tloai;
 }
- public function gettentloai(){
+ public function getTentloai(){
    return $this->ten_tloai; 
  }
- public function settentloai($tentloai) {
+ public function setTentloai($tentloai) {
     $this->ten_tloai = $ten_tloai;
  }
 }

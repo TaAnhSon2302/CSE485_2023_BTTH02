@@ -1,9 +1,3 @@
-<?php
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +22,13 @@ if(!$_SESSION['login']) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href=".index.php?controller=home">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
+                        <a class="nav-link active fw-bold" href="index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
@@ -59,10 +53,10 @@ if(!$_SESSION['login']) {
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-                <form action="./process_add_category.php" method="post">
+                <form action="./index.php?controller=category&action=add" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtCatName" >
+                        <input type="text" class="form-control" name="txttentheloai" >
                     </div>
 
                     <div class="form-group  float-end ">
