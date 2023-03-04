@@ -1,5 +1,5 @@
 <?php
-include("configs/DBConnection.php");
+require_once("configs/DBConnection.php");
 include("models/Article.php");
 class ArticleService{
     public function getAllArticles(){
@@ -9,38 +9,38 @@ class ArticleService{
 
         // B2. Truy vấn
         //$sql = "SELECT * FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai=theloai.ma_tloai INNER JOHN tacgia ON baiviet.ma_tgia=tacgia.ma_tgia WHERE ma_bviet = '$mabviet' ";
-        $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai ORDER BY baiviet.ma_bviet ASC";
+        //$sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai ORDER BY baiviet.ma_bviet ASC";
 
+        $sql = "SELECT * FROM baiviet";
         $stmt = $conn->query($sql);
 
         // B3. Xử lý kết quả
         $articles = [];
         while($row = $stmt->fetch()){
-            $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
+            $article = new Article( $row['hinhanh'], $row['ten_bhat'],$row['ma_bviet']);
             array_push($articles,$article);
         }
+
         // Mảng (danh sách) các đối tượng Article Model
 
         return $articles;
     }
 
-    public function getDetailArticles(){
-        // 4 bước thực hiện
-       $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
+    public function getDetailArticle($id){
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+ 
+         // B2. Truy vấn
+         $sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat,baiviet.tomtat, tacgia.ten_tgia, theloai.ten_tloai, baiviet.ngayviet, baiviet.hinhanh FROM baiviet JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai WHERE baiviet.ma_bviet = '" . $id . "'";
+         $stmt = $conn->query($sql);
 
-        // B2. Truy vấn
-        //$sql = "SELECT * FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai=theloai.ma_tloai INNER JOHN tacgia ON baiviet.ma_tgia=tacgia.ma_tgia WHERE ma_bviet = '$mabviet' ";
-        $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai ORDER BY baiviet.ma_bviet ASC";
-
-        $stmt = $conn->query($sql);
-
-        // B3. Xử lý kết quả
-        $detail_articles = [];
+                 // B3. Xử lý kết quả
+        $articles = [];
         while($row = $stmt->fetch()){
-            $detail_article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ten_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
-            array_push($detail_articles,$detail_article);
+            $article = new Article($row['hinhanh'], $row['ten_bhat'],$row['ma_bviet'],$row['tieude'], $row['tomtat'],$row['ten_tgia'],$row['ten_tloai'],$row['ngayviet']);
+            array_push($articles,$article);
         }
+
         // Mảng (danh sách) các đối tượng Article Model
 
         return $articles;
