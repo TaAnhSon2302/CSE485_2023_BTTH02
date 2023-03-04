@@ -23,10 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php?controller=home&action=trangchu">Trang chủ</a>
+                    <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link"  href="index.php?controller=home&action=login">Đăng nhập</a>
+                    <a class="nav-link"  href="index.php?controller=login">Đăng nhập</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -68,23 +68,24 @@
         <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
         <div class="row">
         <div class="row">
-            <?php
-                foreach($data as $value){
+        <?php 
+                foreach($articles as $key){
+                    ?>
 
-            ?>
-            <div class="col-sm-3">
-                    <div class="card mb-2" style="width: 100%;">
-                        <img src="<?php echo $value['hinhanh'];?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">
-                                <a href="index.php?controller=home&action=detail?ma_bviet=<?php echo $value['ma_bviet']?>" class="text-decoration-none"><?php echo $value['ten_bhat'];?></a>
-                            </h5>
+                        <div class="col-sm-3">
+                            <a href="detail.php?id=<?php echo  $key->getMaBviet() ?>"><div class="card mb-2" style="width: 100%;">
+                                <img src="<?php echo $key->getHinhanh() ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <a href="index.php?controller=detail&id=<?php echo $key->getMaBviet() ?>" class="text-decoration-none"><?php echo $key->getTenBhat() ?></a>
+                                    </h5>
+                                </div>
+                            </div></a>
                         </div>
-                    </div>
-            </div>
-            <?php
+                    <?php
                 }
-            ?> 
+            ?>
+        </div>
         </div>
         </div>
     </main>

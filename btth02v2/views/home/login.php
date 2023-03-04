@@ -24,10 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a style="text-transform: uppercase;" class="nav-link" aria-current="page" href="index.php?controller=home&action=trangchu">Trang chủ</a>
+                    <a style="text-transform: uppercase;" class="nav-link" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                    <a style="text-transform: uppercase;" class="nav-link active" href="index.php?controller=home&action=login">Đăng nhập</a>
+                    <a style="text-transform: uppercase;" class="nav-link active" href="index.php?controller=login">Đăng nhập</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="login.php" method ="POST">
+                        <form>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                                 <input name ="user_name" type="text" class="form-control" placeholder="User" >
@@ -69,7 +69,7 @@
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="btnLogin" value="Login" class="btn float-end login_btn">
+                                <input type="submit" href="index.php?controller=admin" name="btnLogin" value="Login" class="btn float-end login_btn">
                             </div>
                         </form>
                     </div>
