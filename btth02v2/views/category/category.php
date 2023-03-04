@@ -1,9 +1,3 @@
-<?php
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +22,13 @@ if(!$_SESSION['login']) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="index.php?controller=home">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
+                        <a class="nav-link active fw-bold" href="index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
@@ -58,7 +52,7 @@ if(!$_SESSION['login']) {
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_category.php" class="btn btn-success">Thêm mới</a>
+                <a href="index.php?controller=category&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -70,25 +64,19 @@ if(!$_SESSION['login']) {
                     </thead>
                     <tbody>
                     <?php
-         
-         $sql = "SELECT * FROM theloai";
-         $result = mysqli_query($conn,$sql);
- 
-         if(mysqli_num_rows($result) > 0){
-             while($row = mysqli_fetch_assoc($result)){
+     foreach ( $category as $key){
           ?>
                         <tr>
-                            <th scope="row"><?php echo $row['ma_tloai'] ?></th>
-                            <td><?php echo $row['ten_tloai'] ?></td>
+                            <th scope="row"><?php echo $key->getMaTloai()?></th>
+                            <td><?php echo $key->getTentloai()?></td>
                             <td>
-                                <a href="edit_category.php?id=<?php echo $row['ma_tloai'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="index.php?controller=category&action=edit&id=<?php echo $key->getMaTloai()?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="process_delete_category.php?id=<?php echo $row['ma_tloai'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?controller=category&action=delete&id=<?php echo $key->getMaTloai()?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php 
-           }
          }
         ?>
                     </tbody>
