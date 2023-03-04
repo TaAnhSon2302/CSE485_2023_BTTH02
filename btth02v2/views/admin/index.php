@@ -23,13 +23,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link active fw-bold" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="index.php?controller=home">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Thể loại</a>
+                        <a class="nav-link" href="index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
@@ -58,8 +58,8 @@
                         <h5 class="card-title text-center">
                             <a href="" class="text-decoration-none">Người dùng</a>
                         </h5>
-
                         <h5 class="h1 text-center">
+                        <?php echo count($user) ?>
                         </h5>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         </h5>
                             
                         <h5 class="h1 text-center">
-                       
+                        <?php echo count($author) ?>
                         </h5>
                     </div>
                 </div>
