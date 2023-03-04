@@ -25,3 +25,4 @@ class Author{
         $this->ten_tgia = $ten_tgia;
     }
 }
+?>
