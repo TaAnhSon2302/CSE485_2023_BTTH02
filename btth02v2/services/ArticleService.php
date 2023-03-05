@@ -109,10 +109,10 @@ class ArticleService{
         $delete_articles = [];
         while($row = $stmt_select->fetch()){
             $delete_article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
-            array_push($articles,$article);
+            array_push($delete_articles,$delete_article);
         }
   
-        return $carticles;
+        return $delete_carticles;
     }
 }
 ?>
