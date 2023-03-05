@@ -9,7 +9,7 @@
             $category = $categoryService->getAllCategory();
 
             $articleService = new ArticleService();
-            $article  = $articleService->getAllArticles();
+            $article  = $articleService->getAllArticle();
 
             $authorService = new AuthorService();
             $author = $authorService->getAllAuthor();
