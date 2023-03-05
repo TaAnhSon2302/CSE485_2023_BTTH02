@@ -12,7 +12,6 @@ include 'views/includes/header_admin.php';
                             <th scope="col">#</th>
                             <th scope="col">Tên bài viết </th>
                             <th scope="col">Tên bài hát </th>
-                            <th scope="col">Thể loại </th>
                             <th scope="col">Tên tác giả </th>
                             <th>Sửa</th>
                             <th>Xóa</th>
@@ -27,7 +26,6 @@ include 'views/includes/header_admin.php';
                             <th scope="row"><?php echo $key->getMaBviet() ?></th>
                             <td><?php echo $key->getTieude() ?></td>
                             <td><?php echo $key->getTenBhat()  ?></td>
-                            <td><?php echo $key->getTentloai()  ?></td>
                             <td><?php echo $key->getTentgia()?></td>
                             <td>
                                 <a href="index.php?controller=article&action=edit&id=<?php echo $key->getMaBviet() ?>"><i class="fa-solid fa-pen-to-square"></i></a>

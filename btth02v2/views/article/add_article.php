@@ -6,7 +6,7 @@ include 'views/includes/header_admin.php';
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết </h3>
                 <form action="./index.php?controller=article&action=add" enctype="multipart/form-data" method="post">
-
+                <input type="hidden" name="path" value="assets/images/songs/">
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 25px 0px 25px" class="input-group-text" id="lblArTitle">Tiêu đề</span>
                         <input type="text" class="form-control" name="txttieude" >
