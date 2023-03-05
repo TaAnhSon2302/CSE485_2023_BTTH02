@@ -17,18 +17,16 @@ class Article{
     private $ten_tloai;
 
 
-    public function __construct($hinhanh = null,$ten_bhat = null, $ma_bviet = null, $tieude = null, $tomtat = null,$ten_tgia = null, $ten_tloai = null,$ngayviet = null, $ma_tgia = null,$ma_tloai = null,$noidung = null){
+    public function __construct($ma_bviet = null, $tieude = null, $ten_bhat = null, $ten_tloai = null, $tomtat = null, $noidung = null, $ten_tgia = null, $ngayviet = null, $hinhanh = null){
         $this->ma_bviet = $ma_bviet;
         $this->tieude = $tieude;
         $this->ten_bhat = $ten_bhat;
-        $this->ma_tloai = $ma_tloai;
+        $this->ten_tloai = $ten_tloai;
         $this->tomtat = $tomtat;
         $this->noidung = $noidung;
-        $this->ma_tgia = $ma_tgia;
+        $this->ten_tgia = $ten_tgia;
         $this->ngayviet = $ngayviet;
         $this->hinhanh = $hinhanh;
-        $this->ten_tgia = $ten_tgia;
-        $this->ten_tloai = $ten_tloai;
     }
 
     // Setter và Getter
