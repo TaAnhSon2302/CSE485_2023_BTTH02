@@ -34,7 +34,7 @@
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>                      
+                        <a class="nav-link" href="index.php?controller=article">Bài viết</a>                      
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="user.php">Người dùng</a>
@@ -73,7 +73,7 @@
                             <a href="index.php?controller=category&action=edit&id=<?php echo $key->getMaTloai()?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="index.php?controller=category&action=delete&id=<?php echo $key->getMaTloai()?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?controller=category&action=delete&id=<?php echo $key->getMaTloai()?>"onclick="return confirm('Bạn có muốn xoá thể loại này không?')">  <i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php 
