@@ -65,17 +65,13 @@
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 24px 0px 24px" class="input-group-text" id="lblTheLoai">Thể loại</span>
                         <select class="form-select" name="txttloai" >
-                            <?php
-                            $con = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
-                            $sql = "SELECT * FROM theloai";
-                            $result = mysqli_query($con, $sql);
-                            //dropdown list
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        
-                                    echo '<option value="' . $row['ma_tloai'] . '" selected>' . $row['ten_tloai'] . '</option>';
-                                
-                            }
+                        <?php
+                            foreach($categories as $key){
                             ?>
+                            <option value=" <?php echo $key-> getMaTloai()?> " ><?php echo $key-> getTentloai()?></option>;
+                        <?php
+                            }
+                        ?>
                         </select>
                     </div>
 
@@ -97,17 +93,12 @@
                         <span style ="padding : 0px 27px 0px 27px" class="input-group-text" id="lblArAuthor">Tác giả</span>
                         <select class="form-select" name="txttgia" >
                             <?php
-                            $con = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
-                            $sql = "SELECT * FROM tacgia";
-                            $result = mysqli_query($con, $sql);
-
-                            //dropdown list
-                            while ($row = mysqli_fetch_assoc($result)) {
-                           
-                                    echo '<option value="' . $row['ma_tgia'] . '" selected>' . $row['ten_tgia'] . '</option>';
-                                
-                            }
+                            foreach($authors as $key){
                             ?>
+                            <option value=" <?php echo $key-> getMatgia()?> " selected><?php echo $key-> getTentgia()?></option>;
+                        <?php
+                            }
+                        ?>
                         </select>
                     </div>
 
@@ -123,7 +114,7 @@
 
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
-                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=article" class="btn btn-warning ">Quay lại</a>
                     </div>
                     
                 </form>
