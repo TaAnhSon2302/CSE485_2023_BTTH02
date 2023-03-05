@@ -71,11 +71,11 @@ class Article{
         $this->tomtat = $tomtat;
     }
 
-    public function getMaTgia() {
+    public function getMatgia() {
         return $this->ma_tgia;
     }
 
-    public function setMaTgia($ma_tgia) {
+    public function setMatgia($ma_tgia) {
         $this->ma_tgia = $ma_tgia;
     }
 
@@ -103,19 +103,19 @@ class Article{
         $this->noidung = $noidung;
     }
 
-    public function getTLoai() {
+    public function getTentloai() {
         return $this->ten_tloai;
     }
 
-    public function setTLoai($ten_tloai) {
+    public function setTentloai($ten_tloai) {
         $this->ten_tloai = $ten_tloai;
     }
 
-    public function getTGia() {
-        return $this->ten_tloai;
+    public function getTentgia() {
+        return $this->ten_tgia;
     }
 
-    public function setTGia($ten_tgia) {
+    public function setTentgia($ten_tgia) {
         $this->ten_tgia = $ten_tgia;
     }
 }

@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết </h3>
-                <form action="process_add_article.php" enctype="multipart/form-data" method="post">
+                <form action="./index.php?controller=article&action=add" enctype="multipart/form-data" method="post">
 
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 25px 0px 25px" class="input-group-text" id="lblArTitle">Tiêu đề</span>
