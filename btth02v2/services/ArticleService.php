@@ -2,7 +2,7 @@
 require_once("configs/DBConnection.php");
 include("models/Article.php");
 class ArticleService{
-    public function getAllArticle(){
+    public function getAllArticles(){
         // 4 bước thực hiện
        $dbConn = new DBConnection();
        $conn = $dbConn->getConnection();
@@ -11,6 +11,7 @@ class ArticleService{
         // $sql = "SELECT * FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai=theloai.ma_tloai INNER JOHN tacgia ON baiviet.ma_tgia=tacgia.ma_tgia WHERE ma_bviet = '$mabviet' ";
         // $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai";
         // $sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat,baiviet.tomtat, tacgia.ten_tgia, theloai.ten_tloai, baiviet.ngayviet, baiviet.hinhanh FROM baiviet JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai WHERE baiviet.ma_bviet = '" . $id . "'";
+
 
         $sql = "SELECT * FROM baiviet";
         $stmt = $conn->query($sql);
@@ -62,7 +63,7 @@ class ArticleService{
         return $articles;
     }
 
-    public function getAddArticles(){
+    public function getAddArticles( $tieude,$tenbhat,$matloai,$tomtat,$noidung,$matgia,$ngayviet,$hinhanh){
        $dbConn = new DBConnection();
        $conn = $dbConn->getConnection();
 
