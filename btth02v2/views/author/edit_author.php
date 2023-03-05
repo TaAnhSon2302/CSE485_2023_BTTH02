@@ -1,10 +1,4 @@
-<?php 
-$ma_tgia = $_GET['id'];
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,25 +50,20 @@ if(!$_SESSION['login']) {
 
     </header>
     <main class="container mt-5 mb-5">
-    <?php
-    $sql = "SELECT * from tacgia where ma_tgia ='$ma_tgia';
-    ";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    ?>
+
        
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
-                <form action="process_edit_author.php" method="post">
+                <form action="./index.php?controller=author&action=update" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtmatgia" readonly value="<?php echo $row['ma_tgia'] ?>">
+                        <input type="text" class="form-control" name="txtmatgia" readonly value="<?php echo $aut[0]->getMatgia() ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Thể loại</span>
-                        <input type="text" class="form-control" name="txttentgia" value = "<?php echo $row['ten_tgia'] ?>">
+                        <span class="input-group-text" id="lblCatName">Tên tác giả</span>
+                        <input type="text" class="form-control" name="txttentgia" value = "<?php echo $aut[0]->getTentgia() ?>">
                     </div>
 
                     <div class="form-group  float-end ">

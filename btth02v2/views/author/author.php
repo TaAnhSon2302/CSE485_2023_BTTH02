@@ -1,9 +1,4 @@
-<?php
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +32,7 @@ if(!$_SESSION['login']) {
                         <a class="nav-link " href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="author.php">Tác giả</a>
+                        <a class="nav-link active fw-bold" href="index.php?controller=author">Tác giả</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="article.php">Bài viết</a>
@@ -56,7 +51,7 @@ if(!$_SESSION['login']) {
     </header>
     <main class="container mt-5 mb-5">
             <div class="col-sm">
-                <a href="add_author.php" class="btn btn-success">Thêm mới</a>
+                <a href="index.php?controller=author&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -68,25 +63,20 @@ if(!$_SESSION['login']) {
                     </thead>
                     <tbody>
                     <?php 
-         
-         $sql = "SELECT * FROM tacgia";
-         $result = mysqli_query($conn,$sql);
- 
-         if(mysqli_num_rows($result) > 0){
-             while($row = mysqli_fetch_assoc($result)){
+         foreach ( $author as $key){
           ?>
                         <tr>
-                            <th scope="row"><?php echo $row['ma_tgia'] ?></th>
-                            <td><?php echo $row['ten_tgia'] ?></td>
+                            <th scope="row"><?php  echo $key->getMatgia() ?></th>
+                            <td><?php echo  $key->getTentgia() ?></td>
                             <td>
-                                <a href="edit_author.php?id=<?php echo $row['ma_tgia'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="index.php?controller=author&action=edit&id=<?php echo $key->getMatgia() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="process_delete_author.php?id=<?php echo $row['ma_tgia'] ?>" onclick="return confirm('Bạn có muốn xoá tác giả này không?')">  <i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?controller=author&action=delete&id=<?php echo $key->getMatgia()?>">  <i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php 
-           }
+           
          }
         ?>
                     </tbody>
