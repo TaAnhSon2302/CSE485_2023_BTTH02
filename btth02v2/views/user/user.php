@@ -2,34 +2,39 @@
 include 'views/includes/header_admin.php';
 ?>
     <main class="container mt-5 mb-5">
+        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
+        <div class="row">
             <div class="col-sm">
-                <a href="index.php?controller=author&action=create" class="btn btn-success">Thêm mới</a>
+                <a href="index.php?controller=user&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tên tác giả</th>
+                            <th scope="col">Tên tài khoản</th>
+                            <th scope="col">Mật khẩu</th>
+                            <th scope="col">Quyền hạn</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php 
-         foreach ( $author as $key){
+           foreach ($user as $key){
           ?>
                         <tr>
-                            <th scope="row"><?php  echo $key->getMatgia() ?></th>
-                            <td><?php echo  $key->getTentgia() ?></td>
+                            <th scope="row"><?php echo $key->getId() ?></th>
+                            <td><?php echo $key ->getTaiKhoan() ?></td>
+                            <td><?php echo $key ->getMatKhau() ?></td>
+                            <td><?php echo $key ->getQuyenHan() ?></td>
                             <td>
-                                <a href="index.php?controller=author&action=edit&id=<?php echo $key->getMatgia() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="index.php?controller=user&action=edit&id=<?php echo $key->getId()?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="index.php?controller=author&action=delete&id=<?php echo $key->getMatgia()?>">  <i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?controller=user&action=delete&id=<?php echo $key->getId()?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php 
-           
-         }
+           }
         ?>
                     </tbody>
                 </table>
