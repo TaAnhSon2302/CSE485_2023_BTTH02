@@ -50,10 +50,10 @@
                     <a href="" class="text-decoration-none"><?php echo $articles[0]->getTenBhat() ?></a>
                 </h5>
                 <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $articles[0]->getTenBhat() ?></p>
-                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]->getTLoai() ?></p>
+                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]->getTentloai() ?></p>
                 <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $articles[0]->getTomtat() ?></p>
                 <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $articles[0]->getNoidung() ?></p>
-                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]->getTGia() ?></p>
+                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]->getTentgia() ?></p>
             </div>
         </div>
     </main>
