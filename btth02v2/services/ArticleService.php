@@ -2,14 +2,14 @@
 require_once("configs/DBConnection.php");
 include("models/Article.php");
 class ArticleService{
-    public function getAllArticle(){
+    public function getAllArticles(){
         // 4 bước thực hiện
        $dbConn = new DBConnection();
        $conn = $dbConn->getConnection();
 
         // B2. Truy vấn
         //$sql = "SELECT * FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai=theloai.ma_tloai INNER JOHN tacgia ON baiviet.ma_tgia=tacgia.ma_tgia WHERE ma_bviet = '$mabviet' ";
-        $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai";
+        $sql = "SELECT baiviet.*,theloai.ten_tloai, tacgia.ten_tgia FROM baiviet, theloai, tacgia WHERE baiviet.ma_tgia = tacgia.ma_tgia AND baiviet.ma_tloai = theloai.ma_tloai ORDER BY baiviet.ma_bviet ASC";
         //$sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat,baiviet.tomtat, tacgia.ten_tgia, theloai.ten_tloai, baiviet.ngayviet, baiviet.hinhanh FROM baiviet JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai WHERE baiviet.ma_bviet = '" . $id . "'";
 
         //$sql = "SELECT * FROM baiviet";
@@ -18,7 +18,7 @@ class ArticleService{
         // B3. Xử lý kết quả
         $articles = [];
         while($row = $stmt->fetch()){
-            $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
+            $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'],$row['ma_tloai'], $row['ten_tloai'], $row['tomtat'], $row['noidung'], $row['ten_tgia'], $row['ma_tgia'],  $row['ngayviet'], $row['hinhanh']);
             array_push($articles,$article);
         }
 
@@ -62,7 +62,7 @@ class ArticleService{
         return $articles;
     }
 
-    public function getAddArticles(){
+    public function getAddArticles( $tieude,$tenbhat,$matloai,$tomtat,$noidung,$matgia,$ngayviet,$hinhanh){
        $dbConn = new DBConnection();
        $conn = $dbConn->getConnection();
 

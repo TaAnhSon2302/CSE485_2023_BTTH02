@@ -17,7 +17,7 @@ class Article{
     private $ten_tloai;
 
 
-    public function __construct($hinhanh = null,$ten_bhat = null, $ma_bviet = null, $tieude = null, $tomtat = null,$ten_tgia = null, $ten_tloai = null,$ngayviet = null, $ma_tgia = null,$ma_tloai = null,$noidung = null){
+    public function __construct( $ma_bviet = null, $tieude = null, $ten_tloai = null,$ma_tloai = null,$ten_bhat = null, $tomtat = null,$noidung = null,$ten_tgia = null, $ma_tgia = null, $ngayviet = null,$hinhanh = null){
         $this->ma_bviet = $ma_bviet;
         $this->tieude = $tieude;
         $this->ten_bhat = $ten_bhat;
