@@ -1,9 +1,3 @@
-<?php
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +52,7 @@ if(!$_SESSION['login']) {
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới tác giả </h3>
-                <form action="process_add_author.php" method="post">
+                <form action="./index.php?controller=author&action=add" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tác giả</span>
                         <input type="text"  name="txttentgia" class="form-control" >
@@ -66,7 +60,7 @@ if(!$_SESSION['login']) {
 
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
-                        <a href="author.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=author" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
