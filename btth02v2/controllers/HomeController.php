@@ -3,7 +3,7 @@
     class HomeController{
         public function index(){
             $articelService = new ArticleService();
-            $articles = $articelService->getAllArticles();
+            $articles = $articelService->getAllArticle();
 
             include("views/home/index.php");
         }
