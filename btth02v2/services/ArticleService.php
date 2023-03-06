@@ -87,13 +87,29 @@ class ArticleService{
         return $articles;
     }
 
-    public function getAddArticles( $tieuDe, $baiHat, $maTloai, $tomTat, $noiDung, $maTgia, $ngayViet, $hinhAnh){
+    public function getAddArticles( ){
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $tieuDe = $_POST['txttieude'];
+            $baiHat = $_POST['txttenbaihat'];
+            $maTloai = $_POST['txttloai'];
+            $tomTat = $_POST['txttomtat'];
+            $noiDung = $_POST['txtnoidung'];
+            $maTgia = $_POST['txttgia'];
+            $link =  $_POST['path'].$_FILES['file-upload']['name'];
+            $hinhAnh = $_FILES['file-upload']['name'];
 
-        $sql_add = "INSERT INTO baiviet(tieude, ten_bhat, ma_tloai, tomtat, noidung, ma_tgia, ngayviet, hinhanh) 
-        VALUES ('$tieuDe','$baiHat','$maTloai','$tomTat','$noiDung','$maTgia','$ngayViet','$hinhAnh')";
-        $stmt_add = $conn->query($sql_add);
+            $sql_add = "INSERT INTO `baiviet`(`tieude`, `ten_bhat`, `ma_tloai`, `tomtat`, `noidung`, `ma_tgia`, `ngayviet`, `hinhanh`) 
+            VALUES ('$tieuDe','$baiHat','$maTloai','$tomTat','$noiDung','$maTgia',CURDATE(),'$hinhAnh')";
+            $stmt = $conn->query($sql_add);
+            move_uploaded_file($_FILES['file-upload']['tmp_name'], $link);//mac ko can dung`
+            if ($stmt) {
+                return true;
+            } else { 
+                return false;
+            }
+        }
     }
 
     public function deleteArticle($id){
