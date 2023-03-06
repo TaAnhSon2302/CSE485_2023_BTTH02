@@ -31,24 +31,13 @@ require("services/AuthorService.php");
         include('views/article/edit_article.php');
      }
      public function add(){
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $tieuDe = $_POST['txttieude'];
-          $baiHat = $_POST['txttenbaihat'];
-          $maTloai = $_POST['txttloai'];
-          $tomTat = $_POST['txttomtat'];
-          $noiDung = $_POST['txtnoidung'];
-          $maTgia = $_POST['txttgia'];
-          $ngayViet = $_POST['date-input'];
-          $link =  $_POST['path'].$_FILES['file-upload']['name'];
-          $hinhAnh = $_FILES['file-upload']['name'];
-
           $articleService = new ArticleService();
-          $articleService->getAddArticles($tieuDe, $baiHat, $maTloai, $tomTat, $noiDung, $maTgia, $ngayViet, $hinhAnh);
-          move_uploaded_file($_FILES['file-upload']['tmp_name'], $link);
-          header("Location:index.php?controller=article&action=index");
+        //   $articleService->getAddArticles();
+          if ($articleService->getAddArticles()) {
+            self::index();
+        }
 
       }
-  }
 
      public function delete(){
            $articleService = new ArticleService();

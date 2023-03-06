@@ -5,7 +5,7 @@ include 'views/includes/header_admin.php';
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết </h3>
-                <form action="./index.php?controller=article&action=add" enctype="multipart/form-data" method="post">
+                <form action="index.php?controller=article&action=add" enctype="multipart/form-data" method="post">
                 <input type="hidden" name="path" value="assets/images/songs/">
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 25px 0px 25px" class="input-group-text" id="lblArTitle">Tiêu đề</span>
@@ -56,12 +56,7 @@ include 'views/includes/header_admin.php';
                         ?>
                         </select>
                     </div>
-
-                    <div class="input-group mt-3 mb-3">
-                        <span style ="padding : 0px 18px 0px 18px "class="input-group-text" id="lblArDay">Ngày viết</span>
-                        <input type="datetime-local" class="form-control" id="date-input"  name="date-input" >
-                    </div>
-
+                    
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 22px 0px 22px"class="input-group-text" id="lblArImage">Hình ảnh</span>
                         <input type="file" class="form-control" id="file-upload" name="file-upload" >
