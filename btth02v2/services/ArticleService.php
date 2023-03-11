@@ -1,6 +1,6 @@
 <?php
 require_once("configs/DBConnection.php");
-include("models/Article.php");
+include_once("models/Article.php");
 class ArticleService{
     public function getAllArticles(){
         // 4 bước thực hiện
@@ -69,23 +69,22 @@ class ArticleService{
         return $articles;
     }
 
-    public function getUpdateArticles(){
-       $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
-
-        $sql = "UPDATE baiviet SET tieude = '$tieude', ten_bhat = '$tenbhat', ma_tloai = '$matloai' , tomtat = '$tomtat',
-        noidung = '$noidung' , ma_tgia = '$matgia' , ngayviet = '$ngayviet' , hinhanh = '$link$hinhanh'
-        WHERE ma_bviet = '$mabviet' ";
-        $stmt = $conn->query($sql);
-
-        $update_articles = [];
-        while($row = $stmt->fetch()){
-            $update_article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
-            array_push($update_articles,$update_article);
-        }
-
-        return $articles;
-    }
+    public function getUpdateArticles($tieude,$tenbhat,$matloai,$tomtat,$noidung,$matgia,$mabviet){
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+ 
+         $sql = "UPDATE baiviet SET tieude = '$tieude', ten_bhat = '$tenbhat', ma_tloai = '$matloai' , tomtat = '$tomtat',
+         noidung = '$noidung' , ma_tgia = '$matgia'  WHERE ma_bviet = '$mabviet' ";
+         $stmt = $conn->query($sql);
+ 
+         $update_articles = [];
+         while($row = $stmt->fetch()){
+             $update_article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
+             array_push($update_articles,$update_article);
+         }
+ 
+         return $update_articles;
+     }
 
     public function getAddArticles( ){
         $dbConn = new DBConnection();

@@ -1,10 +1,3 @@
-<?php 
-$ma_bviet = $_GET['id'];
-include '../connect_db.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,23 +22,23 @@ if(!$_SESSION['login']) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="index.php?controller=home">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
+                        <a class="nav-link" href="index.php?controller=author">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link active fw-bold" href="index.php?controller=article">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
+                        <a class="nav-link" href="index.php?controller=user">Người dùng</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -64,17 +57,17 @@ if(!$_SESSION['login']) {
                 <form action="./index.php?controller=article&action=update" method="post" enctype="multipart/form-data">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblArId">Mã bài viết</span>
-                        <input type="text" class="form-control" name="txtmabaiviet" readonly value="<?php echo $art[0]->getMaBviet() ?>">
+                        <input type="text" class="form-control" name="txtmabaiviet" readonly value="<?php echo $id_articles[0]->getMaBviet() ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 25px 0px 25px" class="input-group-text" id="lblArTitle">Tiêu đề</span>
-                        <input type="text" class="form-control" name="txttieude" value = "<?php echo $art[0]->getTieude() ?>">
+                        <input type="text" class="form-control" name="txttieude" value = "<?php echo $id_articles[0]->getTieude() ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblArSong">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txttenbaihat" value = "<?php echo $art[0]->getTenBhat() ?>">
+                        <input type="text" class="form-control" name="txttenbaihat" value = "<?php echo $id_articles[0]->getTenBhat() ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
@@ -93,14 +86,14 @@ if(!$_SESSION['login']) {
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 25px 0px 25px" class="input-group-text" id="lblAr">Tóm tắt</span>
                        
-                        <textarea type="text" class="form-control" name="txttomtat" ><?php echo $art[0]->getTomtat() ?></textarea>
+                        <textarea type="text" class="form-control" name="txttomtat" ><?php echo $id_articles[0]->getTomtat() ?></textarea>
                        
                     </div>
 
 
                     <div class="input-group mt-3 mb-3" >
                         <span style ="padding : 0px 20px 0px 20px "class="input-group-text" id="lblArContent">Nội dung</span>
-                        <textarea type="text"  class="form-control" name="txtnoidung"><?php echo $art[0]->getNoidung() ?></textarea>
+                        <textarea type="text"  class="form-control" name="txtnoidung"><?php echo $id_articles[0]->getNoidung() ?></textarea>
                     </div>
 
                     <div class="input-group mt-3 mb-3">
@@ -118,12 +111,12 @@ if(!$_SESSION['login']) {
 
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 18px 0px 18px "class="input-group-text" id="lblArDay">Ngày viết</span>
-                        <input type="text" class="form-control" name="Y-m-d H:i:s" value="<?php echo $art[0]->getNgayviet() ?>">
+                        <input type="text" class="form-control" name="Y-m-d H:i:s" value="<?php echo $id_articles[0]->getNgayviet() ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span style ="padding : 0px 22px 0px 22px"class="input-group-text" id="lblArImage">hình ảnh</span>
-                        <input type="file" class="form-control" id="file-upload" name="file-upload" value = "<?php echo $art[0]->getHinhanh()?>">
+                        <input type="file" class="form-control" id="file-upload" name="file-upload" value = "<?php echo $id_articles[0]->getHinhanh()?>">
                     </div>
 
                     <div class="form-group  float-end ">

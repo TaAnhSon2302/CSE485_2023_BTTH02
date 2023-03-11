@@ -22,23 +22,23 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="index.php?controller=home">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="category.php">Thể loại</a>
+                        <a class="nav-link " href="index.php?controller=category">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="author.php">Tác giả</a>
+                        <a class="nav-link" href="index.php?controller=author">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link active fw-bold" href="index.php?controller=article">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
+                        <a class="nav-link" href="index.php?controller=user">Người dùng</a>
                     </li>
                 </ul>
                 </div>
