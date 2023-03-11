@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài viết</h3>
-                <form action="./index.php?controller=article&action=update" method="post" enctype="multipart/form-data">
+                <form action="index.php?controller=article&action=update" method="post" enctype="multipart/form-data">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblArId">Mã bài viết</span>
                         <input type="text" class="form-control" name="txtmabaiviet" readonly value="<?php echo $id_articles[0]->getMaBviet() ?>">
