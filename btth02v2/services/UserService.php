@@ -89,5 +89,28 @@ public function deleteUser($id){
 
   return $users;
 }
-  }  
+public function login($username, $password)
+{
+    $dbConn = new DBConnection();
+    $conn = $dbConn->getConnection();
+
+    try {
+        $sql = "SELECT * FROM users WHERE tai_khoan = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$username]);
+
+        $user = null;
+        if ($row = $stmt->fetch()) {
+            if ($password == $row['mat_khau']) {
+                $user = new User($row['id_nguoidung'], $row['tai_khoan'], $row['mat_khau'], $row['quyen_han']);
+            }
+        }
+        return $user;
+    } catch (Exception $e) {
+        throw new Exception("Error authenticating user: " . $e->getMessage());
+    } finally {
+        $conn = null;
+    }
+  }
+}
 ?>
