@@ -15,7 +15,7 @@ class ArticleService{
 
         $sql = "SELECT * FROM baiviet
                 INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
-                INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai";
+                INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai ORDER BY baiviet.ma_bviet ASC";
         $stmt = $conn->query($sql);
 
         // B3. Xử lý kết quả
@@ -72,10 +72,11 @@ class ArticleService{
                 'tomtat' => $row['tomtat'],
                 'noidung' => $row['noidung'],
                 'ma_tgia' => $row['ma_tgia'],
-                'hinhanh' => $row['hinhanh'],
+                
                 'ten_tgia' => $row['ten_tgia'],
                 'ngayviet' => $row['ngayviet'],
-                'ten_tloai' => $row['ten_tloai']
+                'ten_tloai' => $row['ten_tloai'],
+                'hinhanh' => $row['hinhanh']
 
             ];
             array_push($articles, $arr);
@@ -83,12 +84,12 @@ class ArticleService{
         return $articles;
     }
 
-    public function getUpdateArticles($id,$tieude,$tenbhat,$matloai,$tomtat,$noidung,$matgia,$mabviet){
+    public function getUpdateArticles($mabviet, $tieuDe, $baiHat, $maTloai, $tomTat, $noiDung, $maTgia, $ngayViet, $hinhAnh){
         $dbConn = new DBConnection();
         $conn = $dbConn->getConnection();
  
         $sql_update = "UPDATE `baiviet` SET `tieude` = '$tieuDe', `ten_bhat` = '$baiHat', `ma_tloai` = '$maTloai' , `tomtat` = '$tomTat',
-        `noidung` = '$noiDung' , `ma_tgia` = '$maTgia' , `ngayviet` = CURDATE() , `hinhanh` = '$hinhAnh' WHERE `ma_bviet` = '$id' ";
+        `noidung` = '$noiDung' , `ma_tgia` = '$maTgia' , `ngayviet` = CURDATE() , `hinhanh` = '$hinhAnh' WHERE `ma_bviet` = '$mabviet' ";
         $stmt_update = $conn->query($sql_update);
      }
 

@@ -9,13 +9,18 @@ require_once("services/AuthorService.php");
     include('views/article/list_article.php');
     }
      public function edit($id){
+
       $authorService = new AuthorService();
-      $id_authors = $authorService->getAllAuthors();
+      $id_authors = $authorService->getAllAuthor();
+    
       $categoryService = new CategoryService();
       $id_categories = $categoryService->getAllCategory();
+      
       $articleService = new ArticleService();
       $id_articles = $articleService->get_id_Article($id);
+     
       include("views/article/edit_article.php");
+
     }
      public function create(){
       $authorService = new AuthorService();
@@ -27,7 +32,7 @@ require_once("services/AuthorService.php");
      
      public function update(){
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $id=$_POST['txtmabaiviet'];
+          $mabviet=$_POST['txtmabaiviet'];
           $tieuDe = $_POST['txttieude'];
           $baiHat = $_POST['txttenbaihat'];
           $maTloai = $_POST['txttloai'];
@@ -37,9 +42,8 @@ require_once("services/AuthorService.php");
           $ngayViet = $_POST['date-input'];
           $link =  $_POST['path'].$_FILES['file-upload']['name'];
           $hinhAnh = $_FILES['file-upload']['name'];
-      
           $articleService = new ArticleService();
-          $articleService->getUpdateArticles($id,$tieuDe, $baiHat, $maTloai, $tomTat, $noiDung, $maTgia, $ngayViet, $hinhAnh);
+          $articleService->getUpdateArticles($mabviet,$tieuDe, $baiHat, $maTloai, $tomTat, $noiDung, $maTgia, $ngayViet, $hinhAnh);
           //move_uploaded_file($_FILES['file-upload']['tmp_name'], $link);
           header("Location:index.php?controller=article&action=index");
       }
