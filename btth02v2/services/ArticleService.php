@@ -1,6 +1,6 @@
 <?php
 require_once("configs/DBConnection.php");
-include("models/Article.php");
+include_once("models/Article.php");
 class ArticleService{
     public function getAllArticles(){
         // 4 bước thực hiện
@@ -63,29 +63,34 @@ class ArticleService{
 
         $articles = [];
         while ($row = $stmt->fetch()) {
-            $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ten_tloai'], $row['tomtat'], $row['noidung'], $row['ten_tgia'], $row['ngayviet'], $row['hinhanh']);
-            array_push($articles, $article);
+
+            $arr = [
+                'ma_bviet' => $row['ma_bviet'],
+                'tieude' => $row['tieude'],
+                'ten_bhat' => $row['ten_bhat'],
+                'ma_tloai' => $row['ma_tloai'],
+                'tomtat' => $row['tomtat'],
+                'noidung' => $row['noidung'],
+                'ma_tgia' => $row['ma_tgia'],
+                'hinhanh' => $row['hinhanh'],
+                'ten_tgia' => $row['ten_tgia'],
+                'ngayviet' => $row['ngayviet'],
+                'ten_tloai' => $row['ten_tloai']
+
+            ];
+            array_push($articles, $arr);
         }
         return $articles;
     }
 
-    public function getUpdateArticles(){
-       $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
-
-        $sql = "UPDATE baiviet SET tieude = '$tieude', ten_bhat = '$tenbhat', ma_tloai = '$matloai' , tomtat = '$tomtat',
-        noidung = '$noidung' , ma_tgia = '$matgia' , ngayviet = '$ngayviet' , hinhanh = '$link$hinhanh'
-        WHERE ma_bviet = '$mabviet' ";
-        $stmt = $conn->query($sql);
-
-        $update_articles = [];
-        while($row = $stmt->fetch()){
-            $update_article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
-            array_push($update_articles,$update_article);
-        }
-
-        return $articles;
-    }
+    public function getUpdateArticles($id,$tieude,$tenbhat,$matloai,$tomtat,$noidung,$matgia,$mabviet){
+        $dbConn = new DBConnection();
+        $conn = $dbConn->getConnection();
+ 
+        $sql_update = "UPDATE `baiviet` SET `tieude` = '$tieuDe', `ten_bhat` = '$baiHat', `ma_tloai` = '$maTloai' , `tomtat` = '$tomTat',
+        `noidung` = '$noiDung' , `ma_tgia` = '$maTgia' , `ngayviet` = CURDATE() , `hinhanh` = '$hinhAnh' WHERE `ma_bviet` = '$id' ";
+        $stmt_update = $conn->query($sql_update);
+     }
 
     public function getAddArticles( ){
         $dbConn = new DBConnection();
