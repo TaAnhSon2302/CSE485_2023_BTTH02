@@ -53,7 +53,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form>
+                        <form action="index.php?controller=login&action=login" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                                 <input name ="user_name" type="text" class="form-control" placeholder="User" >

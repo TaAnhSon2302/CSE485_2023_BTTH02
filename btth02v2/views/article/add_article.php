@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,8 @@
         </nav>
 
     </header>
-    <main class="container mt-5 mb-5">
+
+   <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết </h3>
